@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LiftTrack User Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fbfd;
+      margin: 0;
+      color: #222;
+    }
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.07);
+    }
+    .profile img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #4a90e2;
+    }
+    .profile-info {
+      font-size: 1.2rem;
+    }
+    .profile-info h2 {
+      margin: 0 0 0.25rem 0;
+    }
+    .charts-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 720px) {
+      .charts-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    section.chart-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem 2rem 2rem;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+    }
+    section.chart-card h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #333;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    canvas {
+      max-width: 100%;
+      height: 280px;
+    }
+  </style>
+</head>
+<body>
+  <header>LiftTrack Dashboard</header>
+
+  <main>
+    <div style="text-align: center; margin-bottom: 2rem;">
+    <a href="wrapped.html" 
+       style="display: inline-block; background: #4a90e2; color: white; padding: 0.75rem 1.8rem; border-radius: 30px; font-weight: 700; text-decoration: none; box-shadow: 0 5px 15px rgba(74,144,226,0.6); transition: background-color 0.3s ease;">
+      View Your Lift Wrapped 2025
+    </a>
+  </div>
+  
+    <section class="profile">
+      <img src="https://i.pravatar.cc/80?img=12" alt="User profile" />
+      <div class="profile-info">
+        <h2>John Doe</h2>
+        <p>Member since January 2024</p>
+      </div>
+    </section>
+
+    <section class="charts-container">
+      <section class="chart-card">
+        <h3>Bench Press Progress (lbs)</h3>
+        <canvas id="benchPressChart"></canvas>
+      </section>
+
+      <section class="chart-card">
+        <h3>Squat Progress (lbs)</h3>
+        <canvas id="squatChart"></canvas>
+      </section>
+
+      <section class="chart-card">
+        <h3>Deadlift Progress (lbs)</h3>
+        <canvas id="deadliftChart"></canvas>
+      </section>
+
+      <section class="chart-card">
+        <h3>Overhead Press Progress (lbs)</h3>
+        <canvas id="ohpChart"></canvas>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+
+    function createChart(ctxId, label, data, color) {
+      const ctx = document.getElementById(ctxId).getContext('2d');
+      return new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: months,
+          datasets: [{
+            label: label,
+            data: data,
+            borderColor: color,
+            backgroundColor: color.replace('1)', '0.2)'),
+            tension: 0.3,
+            fill: true,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: false,
+              suggestedMin: Math.min(...data) - 10,
+              suggestedMax: Math.max(...data) + 10,
+              title: {
+                display: true,
+                text: 'Weight (lbs)'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Month'
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 14,
+                  weight: 'bold'
+                }
+              }
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+            }
+          },
+          interaction: {
+            mode: 'nearest',
+            axis: 'x',
+            intersect: false
+          }
+        }
+      });
+    }
+
+    createChart('benchPressChart', 'Bench Press (lbs)', [135, 140, 145, 150, 160, 165, 170, 175, 180, 185], 'rgba(74,144,226,1)');
+    createChart('squatChart', 'Squat (lbs)', [185, 190, 195, 200, 210, 220, 230, 235, 240, 250], 'rgba(34,139,34,1)');  // forest green
+    createChart('deadliftChart', 'Deadlift (lbs)', [225, 230, 235, 240, 250, 255, 260, 270, 280, 290], 'rgba(255,140,0,1)'); // dark orange
+    createChart('ohpChart', 'Overhead Press (lbs)', [75, 80, 85, 90, 95, 100, 105, 110, 110, 115], 'rgba(220,20,60,1)'); // crimson
+  </script>
+</body>
+</html>

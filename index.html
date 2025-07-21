@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LiftTrack — Automatic Lift Tracking & Analytics</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fbfd;
+      color: #222;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 90vh;
+      background: linear-gradient(135deg, #4a90e2 30%, #50c9c3 90%);
+      color: white;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-size: 4rem;
+      margin: 0 0 1rem 0;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    .hero-text p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      color: #e0f7facc;
+    }
+    .btn-primary {
+      background-color: #ffffff;
+      color: #4a90e2;
+      border: none;
+      padding: 1rem 3rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(255 255 255 / 0.5);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #357abd;
+      color: white;
+      box-shadow: 0 12px 20px rgba(0 0 0 / 0.25);
+    }
+    .hero-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+    .hero-image img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      object-fit: cover;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #ddd;
+    }
+    @media (max-width: 800px) {
+      .hero {
+        justify-content: center;
+        text-align: center;
+      }
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+      .hero-image {
+        max-width: 90vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Track Your Lifts Automatically. See Your Progress Instantly.</h1>
+      <p>LiftTrack records every lift you make and saves your workout data securely in the cloud. Visualize your strength journey with beautiful, intuitive graphs.</p>
+      <a href="user.html" class="btn-primary">View Example Dashboard</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=800&q=80" alt="Person lifting weights" />
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 LiftTrack Inc. All rights reserved.
+  </footer>
+</body>
+</html>
