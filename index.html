@@ -14,45 +14,73 @@
     header {
       background: #4a90e2;
       color: white;
-      padding: 3rem 1rem 4rem;
+      padding: 4rem 1rem 5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
     header h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       margin: 0 0 1rem;
       font-weight: 900;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    header p.subtitle {
+      font-weight: 600;
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      color: #cce3ff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     header img {
       max-width: 600px;
       width: 90%;
       height: auto;
-      margin: 2rem auto 0;
+      margin: 0 auto 3rem;
       display: block;
       border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(74,144,226,0.3);
+      box-shadow: 0 20px 40px rgba(74,144,226,0.35);
     }
     main {
       max-width: 900px;
-      margin: 3rem auto 5rem;
+      margin: -2rem auto 4rem;
       padding: 0 1rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #1e62d0;
+      color: white;
+      padding: 0.85rem 2.2rem;
+      border-radius: 35px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-decoration: none;
+      box-shadow: 0 7px 20px rgba(30,98,208,0.6);
+      transition: background-color 0.3s ease;
+      margin-bottom: 3rem;
+    }
+    .btn-primary:hover {
+      background: #154ea0;
+      box-shadow: 0 10px 30px rgba(21,78,160,0.8);
     }
     section.explanation {
       background: white;
-      padding: 2.5rem 2rem;
+      padding: 2.8rem 2.5rem;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.08);
       font-size: 1.25rem;
       line-height: 1.6;
       color: #444;
+      margin-bottom: 4rem;
     }
     section.explanation h2 {
       font-weight: 700;
       margin-bottom: 1rem;
       color: #4a90e2;
       text-align: center;
+      font-size: 2rem;
     }
     footer {
       text-align: center;
@@ -62,10 +90,17 @@
     }
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+      }
+      header p.subtitle {
+        font-size: 1.15rem;
+        margin-bottom: 2rem;
+      }
+      header img {
+        margin-bottom: 2rem;
       }
       main {
-        margin: 2rem 1rem 4rem;
+        margin: 0 auto 3rem;
       }
       section.explanation {
         font-size: 1.1rem;
@@ -77,13 +112,15 @@
 <body>
   <header>
     <h1>LiftTrack</h1>
-    <p style="font-weight: 600; font-size: 1.4rem; max-width: 700px; margin: 0 auto; color: #cce3ff;">
-      Automatic lift tracking and progress visualization — no buttons, no hassle.
-    </p>
+    <p class="subtitle">Automatic lift tracking and progress visualization — no buttons, no hassle.</p>
     <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=800&q=80" alt="Person lifting weights in gym" />
   </header>
 
   <main>
+    <div style="text-align: center;">
+      <a href="user.html" class="btn-primary">View Example User Page</a>
+    </div>
+
     <section class="explanation">
       <h2>How It Works</h2>
       <p>
