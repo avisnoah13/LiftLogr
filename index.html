@@ -3,107 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LiftTrack — Automatic Lift Tracking & Analytics</title>
+  <title>LiftTrack — Automatic Lift Tracking & Progress Visualizer</title>
   <style>
-    body, html {
-      margin: 0; padding: 0;
+    body {
+      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9fbfd;
-      color: #222;
-      height: 100%;
-      overflow-x: hidden;
+      background: #f4f7fa;
+      color: #333;
     }
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5vw;
-      height: 90vh;
-      background: linear-gradient(135deg, #4a90e2 30%, #50c9c3 90%);
+    header {
+      background: #4a90e2;
       color: white;
-      gap: 3rem;
-      flex-wrap: wrap;
+      padding: 3rem 1rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-text {
-      max-width: 600px;
-    }
-    .hero-text h1 {
-      font-size: 4rem;
-      margin: 0 0 1rem 0;
+    header h1 {
+      font-size: 3.5rem;
+      margin: 0 0 1rem;
       font-weight: 900;
-      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
-    .hero-text p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      font-weight: 400;
-      color: #e0f7facc;
-    }
-    .btn-primary {
-      background-color: #ffffff;
-      color: #4a90e2;
-      border: none;
-      padding: 1rem 3rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 8px 15px rgba(255 255 255 / 0.5);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-primary:hover {
-      background-color: #357abd;
-      color: white;
-      box-shadow: 0 12px 20px rgba(0 0 0 / 0.25);
-    }
-    .hero-image {
-      flex: 1;
-      min-width: 300px;
+    header img {
       max-width: 600px;
-    }
-    .hero-image img {
-      width: 100%;
+      width: 90%;
+      height: auto;
+      margin: 2rem auto 0;
+      display: block;
       border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(74,144,226,0.3);
+    }
+    main {
+      max-width: 900px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+    }
+    section.explanation {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    section.explanation h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #4a90e2;
+      text-align: center;
     }
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      color: #888;
       font-size: 0.9rem;
-      color: #777;
-      border-top: 1px solid #ddd;
+      margin-bottom: 2rem;
     }
-    @media (max-width: 800px) {
-      .hero {
-        justify-content: center;
-        text-align: center;
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
       }
-      .hero-text h1 {
-        font-size: 3rem;
+      main {
+        margin: 2rem 1rem 4rem;
       }
-      .hero-image {
-        max-width: 90vw;
+      section.explanation {
+        font-size: 1.1rem;
+        padding: 2rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Track Your Lifts Automatically. See Your Progress Instantly.</h1>
-      <p>LiftTrack records every lift you make and saves your workout data securely in the cloud. Visualize your strength journey with beautiful, intuitive graphs.</p>
-      <a href="user.html" class="btn-primary">View Example Dashboard</a>
-    </div>
-    <div class="hero-image">
-      <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=800&q=80" alt="Person lifting weights" />
-    </div>
-  </section>
+  <header>
+    <h1>LiftTrack</h1>
+    <p style="font-weight: 600; font-size: 1.4rem; max-width: 700px; margin: 0 auto; color: #cce3ff;">
+      Automatic lift tracking and progress visualization — no buttons, no hassle.
+    </p>
+    <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=800&q=80" alt="Person lifting weights in gym" />
+  </header>
+
+  <main>
+    <section class="explanation">
+      <h2>How It Works</h2>
+      <p>
+        LiftTrack uses advanced custom electronics embedded directly into gym machines, barbells, weights, and dumbbells to automatically detect every lift and the exact weight you’re using — without you needing to press any buttons or manually log anything.
+      </p>
+      <p>
+        These smart sensors continuously capture your workout data and securely send it to the cloud in real-time. From there, our platform organizes and visualizes your lifting progress with intuitive charts, performance summaries, and personalized insights — all accessible anytime on your phone or computer.
+      </p>
+      <p>
+        Focus on crushing your goals while we take care of the tracking.
+      </p>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 LiftTrack Inc. All rights reserved.
+    &copy; 2025 LiftTrack Inc.
   </footer>
 </body>
 </html>
